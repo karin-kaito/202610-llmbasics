@@ -4,7 +4,7 @@
 - 2026-10-24 学習プラン作成（study-plan.md）。４教材のリポで章数・必要環境を確認した
 
 ## 未完了事項
-- 自宅 PC の GPU（型番・VRAM）を確認 → study-plan.md §3 のローカル／Colab を確定
+- 自宅 PC の CPU・メモリ容量を確認（GPU は P400 2GB → CPU 運用に決定）
 - Colab Pro の GPU とユニットを公式ページで確認
 - ③ `ch05/17_gemma4` の必要メモリ（未確認）
 
