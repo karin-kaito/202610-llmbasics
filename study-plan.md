@@ -23,13 +23,14 @@
 
 | 段階 | 写経して動かす（主） | 並行して読む（従） | 合流点・ゴール |
 |---|---|---|---|
+| **A0. PyTorch の基礎**（2026-11-03 追加） | ③ 付録 A（A.1〜A.8） | ② 付録の PyTorch（読了済み。読み返し用） | 小さい MLP を Dataset／DataLoader／学習ループ込みで自分で書けたら完了 |
 | **A. GPT-2 を自分で組む** | ③ ch02〜ch05 | ① ch01（トークナイザ）、ch02（Attention〜GPT-2）、ch03（事前学習・生成） | ③ ch05.5 で OpenAI の GPT-2 重みを自作モデルに読み込めたら完了 |
 | **A'. 復習** | ④ nanoGPT `model.py` を読む → shakespeare_char を小さい設定で回す | — | ③ の GPT と nanoGPT の対応表を自分で書けたら完了 |
 | **B. GPT-2 → Gemma 4 の橋渡し** ★最重要 | ① ch05（RoPE / SwiGLU / RMSNorm / KV キャッシュ）→ ③ ch04 ボーナス（KV cache, GQA, SWA, KV-sharing）→ ③ ch05/12_gemma3 → ③ ch05/17_gemma4 | Gemma 4 側の学習（別の場）で出てきた用語を、ここで実装と結び付ける | Gemma 4 ノートの各クラスが GPT-2 のどこから変わったか説明できたら完了 |
 | **C. 事後学習（ファインチューニング）** | ③ ch06〜07、付録 E（LoRA）→ ② 4.4 LoRA、5.2 SFT、5.3 DPO | ① ch06（AdamW・混合精度・DPO） | Kaggle や会社で Gemma を LoRA で調整する話が読めたら完了 |
 | **D. 余裕があれば** | ② ch2（Transformer の原形・エンコーダ／デコーダ）、ch4.1〜4.3（分散学習） | ① ch09（DDP） | — |
 
-②の扱い：途中まで読んだ②は**段階 A の間は止める**。②の ch2 は「元祖 Transformer（エンコーダ／デコーダ）」なので、GPT 系（デコーダのみ）に慣れた後の方が読みやすい。②の強みは後半（LoRA・SFT・DPO の Colab ノート、日本語データ）なので段階 C で合流させる。
+②の扱い：（2026-11-03 追記：②は読了した。段階 C では Colab ノートを動かす形で戻る）途中まで読んだ②は**段階 A の間は止める**。②の ch2 は「元祖 Transformer（エンコーダ／デコーダ）」なので、GPT 系（デコーダのみ）に慣れた後の方が読みやすい。②の強みは後半（LoRA・SFT・DPO の Colab ノート、日本語データ）なので段階 C で合流させる。
 
 ---
 
@@ -98,6 +99,21 @@ E:\study\llm-basics\            ← このリポジトリ（202610-llmbasics）�
 
 1 回の型：**① 読む 5 分 → ② 写経・実行 15〜20 分 → ③ メモ 3 行（分かった／詰まった／次）を progress.md に書く**。
 1 回で終わらなかったら、その節を 2 回に分ける（無理に終わらせない）。
+
+### 段階 A0（③ 付録 A：PyTorch 入門）— 約 6 回（2026-11-03 追加）
+節の名前は GitHub の `code-part1.ipynb` の見出しで確認した（2026-11-03）。日本語版の節番号・題名が同じかは**未確認**。
+
+| 回 | 内容 | ①で詰まりやすい所との関係 |
+|---|---|---|
+| A0-1 | A.1〜A.2（テンソル・dtype・よく使う操作） | 形（shape）、`view`／`reshape`、`.T`、`@` |
+| A0-2 | A.2 の続き：自分で形を変えて遊ぶ（`unsqueeze`・`transpose`・ブロードキャスト） | Attention の `transpose`・バッチ次元 |
+| A0-3 | A.3〜A.4（計算グラフ・自動微分） | `backward()`、`requires_grad`、`no_grad` |
+| A0-4 | A.5（`nn.Module` で多層ネット） | `__init__` と `forward` の書き方、パラメータ数 |
+| A0-5 | A.6（`Dataset`／`DataLoader`） | ③ ch02 のスライディングウィンドウでそのまま使う |
+| A0-6 | A.7〜A.8（学習ループ・保存と読み込み） | ③ ch05 の学習ループの原型 |
+
+- A.9（GPU・複数 GPU）は**読むだけ**。自宅は CPU 運用、DDP は複数 GPU が要る（`code-part2.ipynb`、`DDP-script.py`）。
+- 練習問題の解答：`appendix-A/01_main-chapter-code/exercise-solutions.ipynb`。
 
 ### 段階 A（③ ch02〜05）— 約 25 回
 
