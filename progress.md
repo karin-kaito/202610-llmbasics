@@ -35,6 +35,7 @@
 - 入れたもの：torch 2.15.0+cpu、tiktoken 0.14.0、jupyterlab、ipykernel、matplotlib、tqdm、numpy、pandas
 - **未導入：tensorflow**（③ ch05 の `gpt_download.py` で GPT-2 重みを読むときに必要。ch05 で入れる）
 - Copilot のインライン補完はこのフォルダだけ停止（`.vscode/settings.json`）。写経は自分で書く
+- コードの書き方（2026-11-03 決定）：**vi で `.py` を書き、`# %%` の行でセルに区切る** → VS Code で開くと「Run Cell」でセルごとに実行できる（確認済み）。`.ipynb` は中身が JSON なので vi で作らない（VS Code で新規作成する）
 - 毎回の始め方（Git Bash）：
   ```bash
   cd /e/study/llm-basics
@@ -57,3 +58,4 @@
 - 2026-11-03 ③ ch01 ／ 分かった: LLM の概観は概ね理解。GPT-3 の事前学習データセットの種類・サイズは他の本に無かった情報 ／ 詰まった: 特になし。Transformer は概説レベルの理解なので、詳細は ③ ch03〜04 で ／ 次: 付録 A
 - 2026-11-03 ③ 付録 A A.1〜A.4（A0-1〜A0-3）を読了 ／ ①で詰まったのは `nn.Module` の使い方 ／ 次: A0-4（A.5）
 - 2026-11-03 ／ 進め方を変更：写経ではなく、Claude が出すステップごとのコードをコピペで素早くなぞる。A0〜A0-6 はローカル（Colab 不要。A.9 GPU だけは読むのみ） ／ 次: A0-4 をステップ 1〜6 で
+- 2026-11-03 ／ 分かった: `.ipynb` の中身は JSON なので vi では作れない。`.py` に `# %%` を入れると VS Code でセルごとに実行できた → `a5.py` 方式で進める ／ 次: A0-4 ステップ 1〜6
