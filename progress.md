@@ -30,6 +30,13 @@
    - 次の回の始めに：`notes/linear-cheatsheet.html` を 1 分見返す
 3. 付録 A が終わったら：③ ch02 2.1〜2.4（元の第 2 回）
 
+### 次回の始め方（引き継ぎ）
+1. `cd /e/study/llm-basics` → `git fetch origin` → `git log --oneline main..origin/claude/dazzling-newton-aygrq4`
+   - 何か出たら Claude の記録が増えている → `git merge origin/claude/dazzling-newton-aygrq4` → `git push origin main`
+2. `source .venv/Scripts/activate` → VS Code で `work/rasbt/appA/` に `a6.py`（`# %%` 区切り）を作る
+3. `notes/linear-cheatsheet.html` を 1 分見返す → Claude に「A0-5 のステップを出して」と頼む
+- 作業ブランチ `origin/claude/dazzling-newton-aygrq4` は残してある（消すのは任意。消しても Claude が次回作り直す）
+
 ## 環境メモ（2026-10-31 構築・自宅 PC）
 - エディタ：VS Code（フォルダ信頼済み）、ターミナル：Git Bash
 - 仮想環境：`.venv`（uv で作成、Python 3.12.13。PC 本体の Python 3.14 とは別）
@@ -61,4 +68,4 @@
 - 2026-11-03 ／ 進め方を変更：写経ではなく、Claude が出すステップごとのコードをコピペで素早くなぞる。A0〜A0-6 はローカル（Colab 不要。A.9 GPU だけは読むのみ） ／ 次: A0-4 をステップ 1〜6 で
 - 2026-11-03 ／ 分かった: `.ipynb` の中身は JSON なので vi では作れない。`.py` に `# %%` を入れると VS Code でセルごとに実行できた → `a5.py` 方式で進める ／ 次: A0-4 ステップ 1〜6
 - 2026-11-03 ／ 分かった: `Linear(50, 30)` の weight が (30, 50) なのは「1 行 = 出力ニューロン 1 個ぶんの重み」だから。計算は `X @ W.T + b`。ステップ 6 を直して試した（`self` に持たせれば登録される。forward が古い属性を見ていると、パラメータ数は合っても `model(X)` で落ちる） ／ 教材: `notes/linear-cheatsheet.html`（nn.Linear 早見表、claude.ai に Artifact としても公開・非公開設定）／ 次: A0-5（A.6 Dataset／DataLoader）
-- 2026-11-03 終了 ／ 片付け：Claude の記録（`claude/dazzling-newton-aygrq4`）を手元 main に取り込み、`work/rasbt/appA/` を commit → push する流れを実施予定 ／ 次: A0-5
+- 2026-11-03 終了 ／ 片付け：Claude の記録（`claude/dazzling-newton-aygrq4`）を手元 main に fast-forward で取り込み、`work/rasbt/appA/a5.py` を commit → `git push origin main` まで本人が実施（main = 94454f4）。git の流れ（fetch → log main..origin/ブランチ → merge → add → commit → push）を体験 ／ 次: A0-5
