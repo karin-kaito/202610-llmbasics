@@ -197,4 +197,22 @@ class GoodNet2(torch.nn.Module):
 
 g = GoodNet2()
 print("ModuleList 版:", sum(p.numel() for p in g.parameters()), g(X).shape)
+
+# %%
+###########################################################
+# %%
+torch.manual_seed(123)
+layer = torch.nn.Linear(50, 30)
+W, b = layer.weight, layer.bias
+X = torch.rand((1, 50))
+
+y1 = layer(X)                 # PyTorch に計算させる
+y2 = X @ W.T + b              # 自分で計算する（.T で向きを合わせる）
+print(y1.shape, y2.shape)
+print(torch.allclose(y1, y2)) # 同じ値か？
+
+# 出力ニューロン 0 番 = W の 0 行目（50 個）と入力の掛け算の合計 + b[0]
+y0 = (X[0] * W[0]).sum() + b[0]
+print(y0.item(), y1[0, 0].item())
+print(W[0].shape)
 # %%
