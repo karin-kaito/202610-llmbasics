@@ -62,3 +62,4 @@
 - 2026-11-03 ／ 分かった: `.ipynb` の中身は JSON なので vi では作れない。`.py` に `# %%` を入れると VS Code でセルごとに実行できた → `a5.py` 方式で進める ／ 次: A0-4 ステップ 1〜6
 - 2026-11-03 ／ 分かった: `Linear(50, 30)` の weight が (30, 50) なのは「1 行 = 出力ニューロン 1 個ぶんの重み」だから。計算は `X @ W.T + b`。ステップ 6 を直して試した（`self` に持たせれば登録される。forward が古い属性を見ていると、パラメータ数は合っても `model(X)` で落ちる） ／ 教材: `notes/linear-cheatsheet.html`（nn.Linear 早見表、claude.ai に Artifact としても公開・非公開設定）／ 次: A0-5（A.6 Dataset／DataLoader）
 - 2026-11-03 終了 ／ 片付け：Claude の記録（`claude/dazzling-newton-aygrq4`）を手元 main に取り込み、`work/rasbt/appA/` を commit → push する流れを実施予定 ／ 次: A0-5
+- 2026-11-08〜09 ／ 現状確認と棚卸しのみ（学習は進めていない）。main = `524a555`、作業ブランチも同じ。前回の引き継ぎメモ（`origin/claude/dazzling-newton-aygrq4` の `4652a34`、progress.md の「次回の始め方」）は main に未取り込み（コードの変更は無し）。目的・フォルダ・リポ・特徴を再確認した。GitLab の記録はこのリポに無い ／ 次: A0-5（A.6 Dataset／DataLoader）
