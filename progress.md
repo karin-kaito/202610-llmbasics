@@ -72,3 +72,4 @@
 - 2026-11-03 終了 ／ 片付け：Claude の記録（`claude/dazzling-newton-aygrq4`）を手元 main に fast-forward で取り込み、`work/rasbt/appA/a5.py` を commit → `git push origin main` まで本人が実施（main = 94454f4）。git の流れ（fetch → log main..origin/ブランチ → merge → add → commit → push）を体験 ／ 次: A0-5
 - 2026-11-08〜09 ／ 現状確認と棚卸しのみ（学習は進めていない）。目的・フォルダ・リポ・特徴を再確認した。GitLab の記録はこのリポに無い ／ 次: A0-5（A.6 Dataset／DataLoader）
 - 2026-11-13 ／ 現状確認のみ（学習は 11-03 から 10 日止まっている。main = `524a555` のまま、コードの変更なし）。main に未取り込みだった 2 回ぶんの記録を `claude/hopeful-clarke-n825hn` にまとめた ／ 次: A0-5（A.6 Dataset／DataLoader）
+- 2026-11-13 A0-5 開始 ／ Claude が A.6 のステップ 1〜7 を出した（`a6.py` 用。教材リポ 2026-11-09 時点の A.6 と照合、PyTorch 2.15.0 で動作確認済み）。内容：1 データ、2 Dataset、3 DataLoader、4 設定を変える、5 DataLoader の中身を手でやる、6 わざと間違える、7 ch02 の予告（スライディングウィンドウ）。本人の実施はまだ ／ 次: ステップ 1〜7 を自宅 PC で動かす
