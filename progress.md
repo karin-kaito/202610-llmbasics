@@ -30,12 +30,13 @@
    - 次の回の始めに：`notes/linear-cheatsheet.html` を 1 分見返す
 3. 付録 A が終わったら：③ ch02 2.1〜2.4（元の第 2 回）
 
-### 次回の始め方（引き継ぎ）
-1. `cd /e/study/llm-basics` → `git fetch origin` → `git log --oneline main..origin/claude/dazzling-newton-aygrq4`
-   - 何か出たら Claude の記録が増えている → `git merge origin/claude/dazzling-newton-aygrq4` → `git push origin main`
+### 次回の始め方（引き継ぎ・2026-11-13 更新）
+1. `cd /e/study/llm-basics` → `git fetch origin` → `git log --oneline main..origin/claude/hopeful-clarke-n825hn`
+   - 何か出たら Claude の記録が増えている → `git merge origin/claude/hopeful-clarke-n825hn` → `git push origin main`
+   - このブランチに、過去 2 回ぶんの記録（11-03 の引き継ぎ、11-08〜09 の現状確認）もまとめてある。取り込むのはこの 1 本だけでよい
 2. `source .venv/Scripts/activate` → VS Code で `work/rasbt/appA/` に `a6.py`（`# %%` 区切り）を作る
 3. `notes/linear-cheatsheet.html` を 1 分見返す → Claude に「A0-5 のステップを出して」と頼む
-- 作業ブランチ `origin/claude/dazzling-newton-aygrq4` は残してある（消すのは任意。消しても Claude が次回作り直す）
+- 古い作業ブランチ `origin/claude/dazzling-newton-aygrq4`・`origin/claude/epic-thompson-wfg11h` は、上の取り込みが済めば中身が main に入るので消してよい（消すのは任意）
 
 ## 環境メモ（2026-10-31 構築・自宅 PC）
 - エディタ：VS Code（フォルダ信頼済み）、ターミナル：Git Bash
@@ -69,3 +70,5 @@
 - 2026-11-03 ／ 分かった: `.ipynb` の中身は JSON なので vi では作れない。`.py` に `# %%` を入れると VS Code でセルごとに実行できた → `a5.py` 方式で進める ／ 次: A0-4 ステップ 1〜6
 - 2026-11-03 ／ 分かった: `Linear(50, 30)` の weight が (30, 50) なのは「1 行 = 出力ニューロン 1 個ぶんの重み」だから。計算は `X @ W.T + b`。ステップ 6 を直して試した（`self` に持たせれば登録される。forward が古い属性を見ていると、パラメータ数は合っても `model(X)` で落ちる） ／ 教材: `notes/linear-cheatsheet.html`（nn.Linear 早見表、claude.ai に Artifact としても公開・非公開設定）／ 次: A0-5（A.6 Dataset／DataLoader）
 - 2026-11-03 終了 ／ 片付け：Claude の記録（`claude/dazzling-newton-aygrq4`）を手元 main に fast-forward で取り込み、`work/rasbt/appA/a5.py` を commit → `git push origin main` まで本人が実施（main = 94454f4）。git の流れ（fetch → log main..origin/ブランチ → merge → add → commit → push）を体験 ／ 次: A0-5
+- 2026-11-08〜09 ／ 現状確認と棚卸しのみ（学習は進めていない）。目的・フォルダ・リポ・特徴を再確認した。GitLab の記録はこのリポに無い ／ 次: A0-5（A.6 Dataset／DataLoader）
+- 2026-11-13 ／ 現状確認のみ（学習は 11-03 から 10 日止まっている。main = `524a555` のまま、コードの変更なし）。main に未取り込みだった 2 回ぶんの記録を `claude/hopeful-clarke-n825hn` にまとめた ／ 次: A0-5（A.6 Dataset／DataLoader）
