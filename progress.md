@@ -38,6 +38,17 @@
 3. `notes/linear-cheatsheet.html` を 1 分見返す → Claude に「A0-6 のステップを出して」と頼む
 - 古い作業ブランチ `origin/claude/dazzling-newton-aygrq4`・`origin/claude/epic-thompson-wfg11h` は、上の取り込みが済めば中身が main に入るので消してよい（消すのは任意）
 
+### 卓の使い分け（2026-11-15 決定）
+- **主：ローカル卓**（デスクトップアプリ、`E:\study\llm-basics`）。コードを出す → `.venv` で動かす → 変えて試す、の回はこちら
+  - 理由：`refs/`（.gitignore 対象）と書きかけの `work/` が見える。同じ `.venv` で事前に動かせる。ターミナルのエラーを直接読める。main に直接記録できる。グローバル CLAUDE.md が効く
+  - PC が点いていれば Remote Control でスマホからも操作できる
+- **補助：クラウド卓**（claude.ai/code）。PC を点けていないときの質問・読み物・計画見直しだけに使う
+  - クラウド卓には `refs/` もグローバル CLAUDE.md も無い。記録は `claude/…` ブランチに入る
+- **記録（progress.md など）は 1 か所で書く**：ローカル卓は main に直接書く。クラウド卓の記録はブランチに置いたままにして、次にローカル卓を開いたときに取り込む（両方で同時に書き換えない）
+- 始めと終わりの決まりごと
+  - 始め：`git fetch origin` → `git log --oneline main..origin/<クラウド卓のブランチ>` で増えた記録が無いか確認 → あれば merge
+  - 終わり（ローカル卓）：commit → `git push origin main`。終わり（クラウド卓）：ブランチ名を控えておく
+
 ## 環境メモ（2026-10-31 構築・自宅 PC）
 - エディタ：VS Code（フォルダ信頼済み）、ターミナル：Git Bash
 - 仮想環境：`.venv`（uv で作成、Python 3.12.13。PC 本体の Python 3.14 とは別）
